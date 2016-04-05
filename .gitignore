@@ -2,3 +2,6 @@
 /Hello_World.X/nbproject/private/
 /Hello_World.X/dist/default/
 /HW1/Hello_World.X/nbproject/private/
+
+*.md~
+.gitignore~
