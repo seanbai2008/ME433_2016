@@ -3,12 +3,12 @@
     <type>com.microchip.mplab.nbide.embedded.makeproject</type>
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/make-project/1">
-            <name>Hello_World</name>
-            <creation-uuid>d2240aeb-3ef9-4158-9f65-8a65001ce23f</creation-uuid>
+            <name>HW4</name>
+            <creation-uuid>859c1b4e-4f97-4687-967c-42b84f1f53be</creation-uuid>
             <make-project-type>0</make-project-type>
             <c-extensions>c</c-extensions>
             <cpp-extensions/>
-            <header-extensions/>
+            <header-extensions>h</header-extensions>
             <asminc-extensions/>
             <sourceEncoding>ISO-8859-1</sourceEncoding>
             <make-dep-projects/>
