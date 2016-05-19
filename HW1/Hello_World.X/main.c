@@ -1,6 +1,7 @@
 #include<xc.h>                      // processor SFR definitions Special Function registers
 #include<sys/attribs.h> 
-
+#include "../../HW4.X/spi.h"
+#include "../../HW4.X/i2c.h"
 
 // DEVCFG0
 #pragma config DEBUG = OFF // Background Debugger disabled
@@ -38,6 +39,8 @@
 #pragma config FUSBIDIO = ON // USB pins controlled by USB module
 #pragma config FVBUSONIO = ON // controlled by USB module
 
+#define CS LATAbits.LATA0
+
 int main(void) {
     
     //Startup code to run as fast as possible and get pins back from bad defaults
@@ -57,14 +60,33 @@ int main(void) {
     DDPCONbits.JTAGEN = 0;
     
     // set up RB4 pin as input Pin 
+    TRISAbits.TRISA0 = 0;
+    CS = 1;
+    
+    // set up RB4 pin as input Pin 
     TRISBbits.TRISB4 = 1;  // pin B4 input
 
     // set up LED1 pin as a digital output Pin A4
     TRISAbits.TRISA4 = 0;  // pin RA4 output
     LATAbits.LATA4 = 1;    // turn on the LED1
     
+    //assign SS1 to pin RA0
+    SS1Rbits.SS1R = 0b0000;
+    //assign SDO to pin RA1
+    RPA1Rbits.RPA1R= 0b0101;
+    //assign SDI to pin RB8
+    SDI1Rbits.SDI1R = 0b0100;
+    
+    //turn off analog pin RB2
+    ANSELBbits.ANSB2 = 0;
+            
+    //turn off analog pin RB3
+    ANSELBbits.ANSB3 = 0;
+    initSPI1();
     __builtin_enable_interrupts();
     
+    SPI1_IO(0b11111111);
+    SPI1_IO(0b00000000);
     
     // Main while loop, try to make LED blink every 1ms
     while (1){

@@ -5,3 +5,10 @@
 
 *.md~
 .gitignore~
+/HW4.X/nbproject/private/
+/HW4.X/dist/default/
+/HW4.X/build/default/
+/HW5.X/nbproject/private/
+/HW5.X/dist/default/
+/HW777/nbproject/private/
+/HW777/build/pic32mx_usb_sk2_int_dyn/
