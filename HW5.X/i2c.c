@@ -68,7 +68,7 @@ void write8(unsigned char address, unsigned char data){
 
 void read_data(volatile signed short *data,unsigned char * array){
     unsigned char result[14];
-    signed short temp;
+    unsigned short temp;
     int i;
     i2c_master_start();
     i2c_master_send(LSM6DS33_ADDRESS<<1);

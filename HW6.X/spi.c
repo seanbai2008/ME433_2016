@@ -4,15 +4,11 @@
 #include "spi.h"
 
 void initSPI1(void){
-    
-     //assign SDO1 to pin RA1
+    //assign SDO1 to pin RA1
     RPA1Rbits.RPA1R= 0b0011;
     //assign SDI1 to pin RB8
-    SDI1Rbits.SDI1R = 0b0100;
-    
-    TRISBbits.TRISB15 = 0;
-    A0 = 0;
-    
+    SDI1Rbits.SDI1R = 0b0100;   
+ 
     SPI1BUF;                  // clear the rx buffer by reading from it
     SPI1BRG = 0b1;            // fastest baud rate
     SPI1STATbits.SPIROV = 0;  // clear the overflow bit
